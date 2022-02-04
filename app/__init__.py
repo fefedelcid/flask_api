@@ -7,6 +7,7 @@ app.config.from_mapping(
 )
 
 from app import rutas
+from app import api
 
 
 if __name__ == '__main__':

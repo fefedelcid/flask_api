@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 13px;
+            font-weight: 100;
+        }
+    </style>
     {% block custom %}{% endblock %}
-    <title>{% block title %}{% endblock %} - Electriluz</title>
+
+    <title>
+        {% block title %}{% endblock %} - Electriluz
+    </title>
 </head>
 <body>
     {% block content %}{% endblock %}

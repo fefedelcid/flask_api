@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Productos
+{% endblock %}
+
+{% block custom %}
+    <style>
+        .container {
+            box-sizing: border-box;
+            float: left;
+            margin: 10px;
+            padding: 20px;
+            width: 30%;
+            max-width: 238px;
+            height: 380px;
+            border: 2px solid green;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .container:hover {
+            box-shadow: 3px 3px 4px #515151;
+        }
+        
+        .item_container {
+            box-sizing: border-box;
+            float: left;
+            margin: 10px;
+            padding: 0px;
+            width: 30%;
+            max-width: 238px;
+            height: 380px;
+            border: 2px solid green;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .meli-link {
+            margin-top: 70%;
+        }
+
+        img {
+            max-width: 200px;
+            margin: 0px 10px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+{% if id %}
+    <div class="item_container">
+        <img src="{{ item['img_url'] }}">
+        <p>{{ item["price"] }}</p>
+        <span>{{ item["discount"] }}</span>
+        <h3>{{ item["title"] }}</h3>
+        <a href="{{ item['url'] }}" class="meli-link">
+            <button>Ir a MercadoLibre</button>
+        </a>
+    </div>
+{% else %}
+    {% for itm in item['products'][(30*page):(30*page+30)]: %}
+        <a href="/item/{{ itm['id'] }}">
+            <div class="item_container">
+                <img src="{{ itm['img_url'] }}">
+                <p>{{ itm["price"] }}</p>
+                <span>{{ itm["discount"] }}</span>
+                <h3>{{ itm["title"] }}</h3>
+            </div>
+        </a>
+    {% endfor %}
+    <a href="/items/{{page+1}}">
+        <button>Siguiente</button>
+    </a>
+    <a href="/">
+        <button>Volver al inicio</button>
+    </a>
+{% endif %}
+
+{% endblock %}

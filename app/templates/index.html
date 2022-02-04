@@ -4,7 +4,32 @@
     Inicio
 {% endblock %}
 
+{% block custom %}
+    <style>
+        * {
+            font-size: 1.05em;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            margin-left: 10%;
+            text-decoration: none;
+            color: lightblue;
+        }
+    </style>
+{% endblock %}
 
 {% block content %}
-    <h1>Hola pibe</h1>
+    <p>Página en construcción...</p>
+    <ul>
+        <p>Links útiles:</p>
+        {% for lista in range(1) %}
+            <li>
+                <a href="/items">/items</a>
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}
